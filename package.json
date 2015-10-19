@@ -9,16 +9,20 @@
     "webpack": "webpack",
     "prepublish": "npm test && webpack -p"
   },
+  "homepage": "https://github.com/werk85/fetch-intercept",
+  "bugs": {
+    "url": "https://github.com/werk85/fetch-intercept/issues",
+    "email": "legenhausen@werk85.de"
+  },
+  "repository": {
+    "url": "https://github.com/werk85/fetch-intercept.git"
+  },
   "keywords": [
-    "key",
-    "mirror",
-    "actions",
-    "action",
-    "name",
-    "constants",
-    "flux",
-    "redux",
-    "path"
+    "fetch",
+    "request",
+    "intercept",
+    "interceptor",
+    "hooks"
   ],
   "author": "Malte Legenhausen <legenhausen@werk85.de>",
   "license": "MIT",

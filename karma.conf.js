@@ -1,5 +1,7 @@
 import path from 'path';
 
+import webpack from 'webpack';
+
 export default function (config) {
   config.set({
     browsers: ['PhantomJSCustom'],
@@ -8,7 +10,6 @@ export default function (config) {
 
     files: [
       'node_modules/babel-core/browser-polyfill.js',
-      'node_modules/whatwg-fetch/fetch.js',
       'tests.webpack.js'
     ],
 
@@ -17,6 +18,10 @@ export default function (config) {
     },
 
     reporters: ['progress', 'coverage'],
+
+    client: {
+      captureConsole: true
+    },
 
     customLaunchers: {
       PhantomJSCustom: {
@@ -37,6 +42,11 @@ export default function (config) {
             test: /\.js$/,
             loader: 'babel-loader'
           }
+        ],
+        plugins: [
+          new webpack.ProvidePlugin({
+            fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+          })
         ],
         postLoaders: [
           { // << add subject as webpack's postloader

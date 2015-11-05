@@ -2,9 +2,36 @@ import once from 'lodash.once';
 import wrap from 'lodash.wrap';
 import pull from 'lodash.pull';
 
+// Uses Emscripten stategy for determining environment
+const ENVIRONMENT_IS_NODE = typeof process === 'object' && typeof require === 'function';
+const ENVIRONMENT_IS_WEB = typeof window === 'object';
+const ENVIRONMENT_IS_WORKER = typeof importScripts === 'function';
+
+if (ENVIRONMENT_IS_WORKER) {
+  attach(self);
+} else if (ENVIRONMENT_IS_WEB) {
+  attach(window);
+} else if (ENVIRONMENT_IS_NODE) {
+  attach(global);
+} else {
+  throw new Error('Unsupported environment for fetch-intercept');
+}
+
+function attach(env) {
+  // Make sure fetch is avaibale in the given environment
+  if (!env.fetch) {
+    try {
+      require('whatwg-fetch');
+    } catch (err) {
+      throw Error('No fetch avaibale. Unable to register fetch-intercept');
+    }
+  }
+  env.fetch = wrap(env.fetch, interceptor);
+}
+
 let interceptors = [];
 
-window.fetch = wrap(window.fetch, function (fetch, ...args) {
+function interceptor(fetch, ...args) {
   const reversedInterceptors = interceptors.reduce((array, interceptor) => [interceptor].concat(array), []);
   let promise = Promise.resolve(args);
 
@@ -26,7 +53,7 @@ window.fetch = wrap(window.fetch, function (fetch, ...args) {
   });
 
   return promise;
-});
+}
 
 export default {
   register: function (interceptor) {

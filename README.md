@@ -2,7 +2,7 @@
 
 Interceptor library for the native fetch command inspired by [angular http interceptors](https://docs.angularjs.org/api/ng/service/$http).
 
-_Note_: Current only browser environments are supported.
+`fetch-intercept` monkey patches the global `fetch` method and allows you the usage in Browser, Node and Webworker environments.
 
 ## Installation
 
@@ -12,7 +12,9 @@ npm install fetch-intercept --save
 
 ## Usage
 
-Make sure you have a `fetch` [compatible browser](http://caniuse.com/#search=fetch) or added a [appropriate polyfill](https://github.com/github/fetch).
+_Note_: You need to require `fetch-intercept` before you use `fetch` the first time.
+
+Make sure you have a `fetch` [compatible environment](http://caniuse.com/#search=fetch) or added a [appropriate polyfill](https://github.com/github/fetch).
 
 ```js
 import fetchIntercept from 'fetch-intercept';

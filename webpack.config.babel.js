@@ -9,9 +9,9 @@ export default {
     library: true,
     libraryTarget: 'commonjs2'
   },
-  externals: {
-    'whatwg-fetch': 'fetch'
-  },
+  externals: [
+    'whatwg-fetch'
+  ],
   module: {
     loaders: [
       {

@@ -1,13 +1,21 @@
+/*
+* Configuration for React-Native's package system
+* @providesModule whatwg-fetch
+*/
+
 import once from 'lodash.once';
 import wrap from 'lodash.wrap';
 import pull from 'lodash.pull';
 
 // Uses Emscripten stategy for determining environment
+const ENVIRONMENT_IS_REACT_NATIVE = typeof navigator === 'object' && navigator.product === 'ReactNative';
 const ENVIRONMENT_IS_NODE = typeof process === 'object' && typeof require === 'function';
 const ENVIRONMENT_IS_WEB = typeof window === 'object';
 const ENVIRONMENT_IS_WORKER = typeof importScripts === 'function';
 
-if (ENVIRONMENT_IS_WORKER) {
+if (ENVIRONMENT_IS_REACT_NATIVE) {
+  attach(global);
+} else if (ENVIRONMENT_IS_WORKER) {
   attach(self);
 } else if (ENVIRONMENT_IS_WEB) {
   attach(window);

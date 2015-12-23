@@ -48,5 +48,8 @@ fetch('http://google.com');
 unregister();
 ```
 
+## React-Native Compatibility
+Support react-native `0.17` or higher versions.
+
 ## License
 MIT

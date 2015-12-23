@@ -1,3 +1,7 @@
+# Version 2.1.0
+
+ * React-Native Support added #2.
+
 # Version 2.0.1
 
  * Webpack externals fixed.

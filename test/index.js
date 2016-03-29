@@ -1,6 +1,6 @@
-import expect from 'expect';
+const expect = require('expect');
 
-import fetchInterceptor from '../src/index';
+const fetchInterceptor = require('../src/index');
 
 describe('fetch-intercept', function () {
   beforeEach(() => fetchInterceptor.clear());

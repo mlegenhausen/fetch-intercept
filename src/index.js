@@ -64,7 +64,7 @@ function interceptor(fetch, ...args) {
   return promise;
 }
 
-export default {
+module.exports = {
   register: function (interceptor) {
     interceptors.push(interceptor);
     return () => {

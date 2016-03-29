@@ -3,9 +3,6 @@
 * @providesModule whatwg-fetch
 */
 
-import once from 'lodash.once';
-import wrap from 'lodash.wrap';
-import pull from 'lodash.pull';
 
 // Uses Emscripten stategy for determining environment
 const ENVIRONMENT_IS_REACT_NATIVE = typeof navigator === 'object' && navigator.product === 'ReactNative';
@@ -34,7 +31,11 @@ function attach(env) {
       throw Error('No fetch avaibale. Unable to register fetch-intercept');
     }
   }
-  env.fetch = wrap(env.fetch, interceptor);
+  env.fetch = (function(fetch){
+    return function (...args){
+      return interceptor(fetch, ...args);
+    }
+  })(env.fetch);
 }
 
 let interceptors = [];
@@ -66,7 +67,12 @@ function interceptor(fetch, ...args) {
 export default {
   register: function (interceptor) {
     interceptors.push(interceptor);
-    return once(() => pull(interceptors, interceptor));
+    return () => {
+      const index = interceptors.indexOf(interceptor);
+      if(index >=0){
+        interceptors.splice(index, 1);
+      }
+    };
   },
   clear: function () {
     interceptors = [];

@@ -1,3 +1,8 @@
+# Version 2.2.0
+
+ * Lodash dependencies removed.
+ * Production and development build added.
+
 # Version 2.1.0
 
  * React-Native Support added #2.

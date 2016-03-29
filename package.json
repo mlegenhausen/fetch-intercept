@@ -51,8 +51,5 @@
     "whatwg-fetch": "^0.10.1"
   },
   "dependencies": {
-    "lodash.once": "^3.0.1",
-    "lodash.pull": "^3.0.1",
-    "lodash.wrap": "^3.0.1"
   }
 }

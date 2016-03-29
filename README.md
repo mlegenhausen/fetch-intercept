@@ -1,5 +1,7 @@
 # fetch-intercept
 
+[![Build Status](https://travis-ci.org/werk85/fetch-intercept.svg?branch=master)](https://travis-ci.org/werk85/fetch-intercept)
+
 Interceptor library for the native fetch command inspired by [angular http interceptors](https://docs.angularjs.org/api/ng/service/$http).
 
 `fetch-intercept` monkey patches the global `fetch` method and allows you the usage in Browser, Node and Webworker environments.

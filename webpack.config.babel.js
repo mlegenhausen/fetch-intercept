@@ -1,11 +1,15 @@
 import path from 'path';
 
+import optimist from 'optimist';
+
+const isProduction = optimist.argv.p;
+
 export default {
   devtool: 'sourcemap',
   entry: path.join(__dirname, 'src/index.js'),
   output: {
     path: path.join(__dirname, 'lib'),
-    filename: 'index.js',
+    filename: isProduction ? 'index.min.js' : 'index.js',
     library: true,
     libraryTarget: 'commonjs2'
   },

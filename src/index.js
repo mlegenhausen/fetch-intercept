@@ -31,10 +31,10 @@ function attach(env) {
       throw Error('No fetch avaibale. Unable to register fetch-intercept');
     }
   }
-  env.fetch = (function(fetch){
-    return function (...args){
+  env.fetch = (function (fetch) {
+    return function (...args) {
       return interceptor(fetch, ...args);
-    }
+    };
   })(env.fetch);
 }
 
@@ -69,7 +69,7 @@ export default {
     interceptors.push(interceptor);
     return () => {
       const index = interceptors.indexOf(interceptor);
-      if(index >=0){
+      if (index >= 0) {
         interceptors.splice(index, 1);
       }
     };

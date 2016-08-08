@@ -1,3 +1,7 @@
+# Version 2.2.1
+
+ * .babelrc removed from npm package #4
+
 # Version 2.2.0
 
  * Lodash dependencies removed.

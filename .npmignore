@@ -3,3 +3,4 @@ node_modules
 src
 *.log
 coverage
+.babelrc

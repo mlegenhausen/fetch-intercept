@@ -1,3 +1,7 @@
+# Version 2.2.2
+
+ * Remove irrelevant code #8
+
 # Version 2.2.1
 
  * .babelrc removed from npm package #4

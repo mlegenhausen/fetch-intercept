@@ -1,6 +1,6 @@
 {
   "name": "fetch-intercept",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Interceptor library for the native fetch command inspired by angular http intercepts.",
   "main": "lib/index.js",
   "scripts": {

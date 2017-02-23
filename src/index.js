@@ -10,12 +10,14 @@ const ENVIRONMENT_IS_NODE = typeof process === 'object' && typeof require === 'f
 const ENVIRONMENT_IS_WEB = typeof window === 'object';
 const ENVIRONMENT_IS_WORKER = typeof importScripts === 'function';
 
-if (ENVIRONMENT_IS_REACT_NATIVE || ENVIRONMENT_IS_NODE) {
+if (ENVIRONMENT_IS_REACT_NATIVE) {
   attach(global);
 } else if (ENVIRONMENT_IS_WORKER) {
   attach(self);
 } else if (ENVIRONMENT_IS_WEB) {
   attach(window);
+} else if (ENVIRONMENT_IS_NODE) {
+  attach(global);
 } else {
   throw new Error('Unsupported environment for fetch-intercept');
 }

@@ -6,10 +6,13 @@ const isProduction = optimist.argv.p;
 
 export default {
   devtool: 'sourcemap',
-  entry: path.join(__dirname, 'src/index.js'),
+  entry: {
+    node: path.join(__dirname, 'src/node.js'),
+    browser: path.join(__dirname, 'src/browser.js')
+  },
   output: {
     path: path.join(__dirname, 'lib'),
-    filename: isProduction ? 'index.min.js' : 'index.js',
+    filename: isProduction ? '[name].min.js' : '[name].js',
     library: true,
     libraryTarget: 'commonjs2'
   },

@@ -1,6 +1,6 @@
 const expect = require('expect');
 
-const fetchInterceptor = require('../src/index');
+const fetchInterceptor = require('../src/browser');
 
 describe('fetch-intercept', function () {
   beforeEach(() => fetchInterceptor.clear());

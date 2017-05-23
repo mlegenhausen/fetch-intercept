@@ -2,7 +2,8 @@
   "name": "fetch-intercept",
   "version": "2.2.3",
   "description": "Interceptor library for the native fetch command inspired by angular http intercepts.",
-  "main": "lib/index.js",
+  "main": "lib/node.js",
+  "browser": "lib/browser.js",
   "scripts": {
     "test": "eslint . && karma start",
     "test:watch": "karma start --no-single-run",

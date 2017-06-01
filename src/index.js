@@ -23,12 +23,12 @@ if (ENVIRONMENT_IS_REACT_NATIVE) {
 }
 
 function attach(env) {
-  // Make sure fetch is avaibale in the given environment
+  // Make sure fetch is available in the given environment
   if (!env.fetch) {
     try {
       require('whatwg-fetch');
     } catch (err) {
-      throw Error('No fetch avaibale. Unable to register fetch-intercept');
+      throw Error('No fetch available. Unable to register fetch-intercept');
     }
   }
   env.fetch = (function (fetch) {

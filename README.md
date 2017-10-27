@@ -14,7 +14,7 @@ npm install fetch-intercept --save
 
 ## Usage
 
-_Note_: You need to require `fetch-intercept` before you use `fetch` the first time.
+_Note_: You require `fetch-intercept` before you use `fetch` the first time.
 
 Make sure you have a `fetch` [compatible environment](http://caniuse.com/#search=fetch) or added a [appropriate polyfill](https://github.com/github/fetch).
 

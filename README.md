@@ -33,7 +33,7 @@ const unregister = fetchIntercept.register({
     },
 
     response: function (response) {
-        // Modify the reponse object
+        // Modify the response object
         return response;
     },
 

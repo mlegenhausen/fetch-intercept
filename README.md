@@ -28,7 +28,7 @@ const unregister = fetchIntercept.register({
     },
 
     requestError: function (error) {
-        // Called when an error occured during another 'request' interceptor call
+        // Called when an error occurred during another 'request' interceptor call
         return Promise.reject(error);
     },
 

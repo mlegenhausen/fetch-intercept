@@ -1,6 +1,7 @@
 # Version 2.3.0
 
- * TypeScript definitions added
+ * TypeScript definitions added #21
+ * Let bundler decide whether env is node or browser #7
 
 # Version 2.2.3
 

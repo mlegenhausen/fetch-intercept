@@ -2,6 +2,8 @@ import path from 'path';
 
 import optimist from 'optimist';
 
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
 const isProduction = optimist.argv.p;
 
 export default {
@@ -18,6 +20,11 @@ export default {
   },
   externals: [
     'whatwg-fetch'
+  ],
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: './src/index.d.ts'},
+    ], {})
   ],
   module: {
     loaders: [

@@ -1,3 +1,6 @@
+# Version 2.3.1
+ * Typings improved #24
+
 # Version 2.3.0
 
  * TypeScript definitions added #21

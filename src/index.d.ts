@@ -1,7 +1,7 @@
 // Typescript definition file
 declare module 'fetch-intercept' {
   export interface FetchInterceptor {
-    request?(request: any, config?: any): Promise<any[]> | any[];
+    request?(request: Request | string, config?: RequestInit): Promise<any[]> | any[];
     requestError?(error: any): Promise<any>;
     response?(response: Response): Response;
     responseError?(error: any): Promise<any>;

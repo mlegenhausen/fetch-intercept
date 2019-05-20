@@ -25,6 +25,9 @@ function interceptor(fetch, ...args) {
   }).then(response => {
     response.request = request;
     return response;
+  }).catch(error => {
+    error.request = request;
+    return Promise.reject(error);
   });
 
   // Register response interceptors

@@ -17,12 +17,20 @@ function interceptor(fetch, ...args) {
   });
 
   // Register fetch call
-  promise = promise.then(args => fetch(...args));
+  let request = undefined;
+
+  promise = promise.then(args => {
+    request = { input: args[0], init: args[1] };
+    return fetch(...args)
+  });
 
   // Register response interceptors
   reversedInterceptors.forEach(({ response, responseError }) => {
     if (response || responseError) {
-      promise = promise.then(response, responseError);
+      promise = promise.then(
+        (args) => response(args, request),        
+        (args) => responseError(args, request),        
+      );
     }
   });
 

@@ -32,12 +32,12 @@ const unregister = fetchIntercept.register({
         return Promise.reject(error);
     },
 
-    response: function (response) {
+    response: function (response, request) {
         // Modify the reponse object
         return response;
     },
 
-    responseError: function (error) {
+    responseError: function (error, request) {
         // Handle an fetch error
         return Promise.reject(error);
     }

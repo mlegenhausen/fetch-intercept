@@ -1,3 +1,6 @@
+# Version 2.4.0
+ * `Request` object added to the `response` and `error` object [#36](https://github.com/werk85/fetch-intercept/pull/36) (@neorel)
+
 # Version 2.3.1
  * Typings improved #24
 

@@ -1,6 +1,6 @@
 {
   "name": "fetch-intercept",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "Interceptor library for the native fetch command inspired by angular http intercepts.",
   "main": "lib/node.js",
   "browser": "lib/browser.js",
@@ -54,6 +54,5 @@
     "phantomjs-prebuilt": "^2.1.7",
     "webpack": "^1.12.14",
     "whatwg-fetch": "^0.11.0"
-  },
-  "dependencies": {}
+  }
 }

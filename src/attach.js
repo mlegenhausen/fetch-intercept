@@ -17,7 +17,16 @@ function interceptor(fetch, ...args) {
   });
 
   // Register fetch call
-  promise = promise.then(args => fetch(...args));
+  promise = promise.then(args => {
+    const request = new Request(...args);
+    return fetch(request).then(response => {
+      response.request = request;
+      return response;
+    }).catch(error => {
+      error.request = request;
+      return Promise.reject(error);
+    });
+  });
 
   // Register response interceptors
   reversedInterceptors.forEach(({ response, responseError }) => {
